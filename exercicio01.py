@@ -85,3 +85,13 @@ print(sales.loc[cond, 'Order_Quantity'].mean())
 
 cond = (sales['Year'] == 2016) & (sales['Month'] == 'May')
 print(sales.loc[cond].shape[0])
+
+
+sales['Revenue_per_Age'] = sales['Revenue'] * sales['Customer_Age']
+print(sales['Revenue_per_Age'].head())
+
+sales['Calculated_Cost'] = sales['Order_Quantity'] * sales['Unit_Cost']
+
+print(sales['Revenue_per_Age'].head())
+
+print((sales['Calculated_Cost'] != sales['Cost']).sum())
